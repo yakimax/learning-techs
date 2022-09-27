@@ -40,8 +40,9 @@ function bat() {
                 payload: val
             })}
         }></input>
-        <button type = ></button>
-        <div>No of bats : {bats}</div>
+        <button type = 'click' onClick={dispatch({type : 'sell-bat'})}>sell-bat</button>
+        <button type = 'click' onClick={dispatch({type : 'buy-bat'})}>buy-bat</button>
+        <div>No of bats : {state.bat}</div>
     </>
   )
 }
