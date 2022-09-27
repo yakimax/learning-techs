@@ -6,7 +6,7 @@ function reducer(state,action){
         case "increment":
             return state + 1 ;
         case "decrement":
-            return state -1 ;
+            return state - 1 ;
         default :
         console.log("wrong type") ;
     }
