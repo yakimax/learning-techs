@@ -6,9 +6,29 @@ let initialState = {
     bat : 10
 }
 
+function reducer(state = initialState,action){
+    switch(action.type){
+        case 'buy-bat' :
+            return {
+                bat : state.bat + state.value ,
+                value : "" 
+            }
+        case 'sell-bat' :
+            return {
+                bat : state.bat - state.value ,
+                value : ""
+             }
+        case 'set_value' :
+            return {
+                ...state.bat ,
+                value : action.payload
+            }
+    }
+}
+
 function bat() {
 
-    const [state,dispatch] = useReducer(reducer,initialState);
+    const [ state , dispatch ] = useReducer( reducer , initialState ) ;
 
   return (
     <>
