@@ -5,7 +5,7 @@ let initialState = {
     value : ""
 }
 
-function reducer(state,action){
+export function batReducer(state,action){
     switch(action.type){
         case 'buy-bat' :
             return {
@@ -29,7 +29,7 @@ function reducer(state,action){
 
 function Bat() {
 
-    const [ state , dispatch ] = useReducer( reducer , initialState ) ;
+    const [ state , dispatch ] = useReducer( batReducer , initialState ) ;
 
   return (
     <>
