@@ -1,50 +1,51 @@
-import React from 'react'
-import { useReducer } from 'react';
+import React ,{useReducer} from 'react'
 
 let initialState = {
-    value : "",
-    bat : 10
+    bat : 10,
+    value : ""
 }
 
-function reducer(state = initialState,action){
+function reducer(state,action){
     switch(action.type){
         case 'buy-bat' :
             return {
-                bat : state.bat + state.value ,
+                bat : state.bat + Number(state.value),
                 value : "" 
             }
         case 'sell-bat' :
             return {
-                bat : state.bat - state.value ,
+                bat : state.bat - (state.value) ,
                 value : ""
              }
         case 'set_value' :
             return {
-                ...state.bat ,
+                bat : state.bat ,
                 value : action.payload
             }
+        default : 
+            console.log('aalu') ;
     }
 }
 
-function bat() {
+function Bat() {
 
     const [ state , dispatch ] = useReducer( reducer , initialState ) ;
 
   return (
     <>
         <div>Bat</div>
-        <input value = {state.value} onChange={(e)=>{
+        <div>No of bats : {state.bat}</div>
+        <input type = 'text' value = {state.value} onChange={ (e) => {
             let val = e.target.value ;
             dispatch({
                 type: "set_value",
                 payload: val
             })}
-        }></input>
-        <button type = 'click' onClick={dispatch({type : 'sell-bat'})}>sell-bat</button>
-        <button type = 'click' onClick={dispatch({type : 'buy-bat'})}>buy-bat</button>
-        <div>No of bats : {state.bat}</div>
+        }/>
+        <button onClick={()=>{dispatch({type : 'sell-bat'})}}>Sell</button>
+        <button onClick={()=>{dispatch({type : 'buy-bat'})}}>Buy</button>
     </>
   )
 }
 
-export default bat
+export default Bat
