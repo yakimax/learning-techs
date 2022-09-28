@@ -1,15 +1,15 @@
 import './App.css';
 import Balls from './components/Balls';
 import Bat from './components/Bat';
-import {Provider} from 'react-redux'
+import {provider} from 'redux'
 
 function App() {
   return (
     <div>
-      <Provider>
+      <provider>
       <Balls/>
       <Bat/>
-      </Provider>
+      </provider>
     </div>
   );
 }
