@@ -1,51 +1,33 @@
-import React ,{useReducer} from 'react'
+import React from 'react' ;
+import {connect} from 'react-redux'
 
-let initialState = {
-    bat : 10,
-    value : ""
-}
-
-export function batReducer(state,action){
-    switch(action.type){
-        case 'buy-bat' :
-            return {
-                bat : state.bat + Number(state.value),
-                value : "" 
-            }
-        case 'sell-bat' :
-            return {
-                bat : state.bat - (state.value) ,
-                value : ""
-             }
-        case 'set_value' :
-            return {
-                bat : state.bat ,
-                value : action.payload
-            }
-        default : 
-            console.log('aalu') ;
-    }
-}
-
-function Bat() {
-
-    const [ state , dispatch ] = useReducer( batReducer , initialState ) ;
+function Bat(props) {
 
   return (
     <>
         <div>Bat</div>
-        <div>No of bats : {state.bat}</div>
-        <input type = 'text' value = {state.value} onChange={ (e) => {
-            let val = e.target.value ;
-            dispatch({
-                type: "set_value",
-                payload: val
-            })}
+        <div>No of bats : {props.bat}</div>
+        <input type = 'text' value = {props.value} onChange={ (e) => {let val = e.target.value;
+        props.setValue(val) }
         }/>
-        <button onClick={()=>{dispatch({type : 'sell-bat'})}}>Sell</button>
-        <button onClick={()=>{dispatch({type : 'buy-bat'})}}>Buy</button>
+        <button onClick={props.sellBat}>Sell</button>
+        <button onClick={props.buyBat}>Buy</button>
     </>
   )
 }
+const mapStateToProps = ( store )=>{
+    return store.Bat ;
+}
 
-export default Bat
+const mapDispatchToProps = (dispatch)=>{
+    return {
+        sellBat : ()=>{dispatch({type : 'sell-bat'})},
+        buyBat : ()=>{dispatch({type : 'buy-bat'})},
+        setValue : (val)=>{dispatch({
+            type: "set_value",
+            payload: val
+        })}
+    }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(Bat);

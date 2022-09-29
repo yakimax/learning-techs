@@ -1,15 +1,16 @@
-import './App.css';
-import Balls from './components/Balls';
-import Bat from './components/Bat';
-import {provider} from 'redux'
+import './App.css' ;
+import Balls from './components/Balls' ;
+import Bat from './components/Bat' ;
+import {Provider} from 'react-redux' ;
+import { store } from './store' ;
 
 function App() {
   return (
     <div>
-      <provider>
+      <Provider store={store}>
       <Balls/>
       <Bat/>
-      </provider>
+      </Provider>
     </div>
   );
 }

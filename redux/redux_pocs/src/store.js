@@ -1,5 +1,10 @@
-import {createStore} from 'react-redux'
-import {batReducer} from './components/Bat' ;
+import {combineReducers, createStore} from 'redux' ;
+import {ballReducer} from './redux/ballReducer' ;
+import {batReducer} from './redux/batReducer' ;
 
-export let store  = createStore(batReducer);
+let rootReducer = combineReducers({
+    bat : batReducer ,
+    ball : ballReducer,
+});
 
+export let store  = createStore(rootReducer) ;
