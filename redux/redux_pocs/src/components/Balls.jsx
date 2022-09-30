@@ -15,12 +15,14 @@ function Balls(props) {
 }
 
 const mapStateToProps = (store)=>{
-    return store ;
+    return store.Balls ;
 }
+
 const mapDispatchToProps = (dispatch)=>{
     return {
         buyball : ()=>{dispatch({type : 'increment'})},
         sellball : ()=>{dispatch({type : 'decrement'})}
     }
 }
+
 export default connect(mapStateToProps,mapDispatchToProps)(Balls);
