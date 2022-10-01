@@ -14,6 +14,7 @@ function Bat(props) {
     </>
   )
 }
+
 const mapStateToProps = ( store )=>{
     return store.Bat ;
 }
@@ -29,4 +30,4 @@ const mapDispatchToProps = (dispatch)=>{
     }
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(Bat);
+export default connect(mapStateToProps,mapDispatchToProps)(Bat) ;

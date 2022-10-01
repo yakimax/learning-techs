@@ -1,5 +1,5 @@
 import React from 'react' ;
-import {connect} from 'react-redux'; 
+import {connect} from 'react-redux' ;
 
 
 function Balls(props) {
@@ -25,4 +25,4 @@ const mapDispatchToProps = (dispatch)=>{
     }
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(Balls);
+export default connect(mapStateToProps,mapDispatchToProps)(Balls) ;
