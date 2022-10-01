@@ -1,7 +1,10 @@
 import React from 'react' ;
 import {connect} from 'react-redux'
+import {store} from '../store'
+
 
 function Bat(props) {
+    console.log(props);
   return (
     <>
         <div>Bat</div>
@@ -16,10 +19,10 @@ function Bat(props) {
 }
 
 const mapStateToProps = ( store )=>{
-    return store.Bat ;
+    return store.bat ;
 }
 
-const mapDispatchToProps = (dispatch)=>{
+const mapDispatchtoProps = (dispatch)=>{
     return {
         sellBat : ()=>{dispatch({type : 'sell-bat'})},
         buyBat : ()=>{dispatch({type : 'buy-bat'})},
@@ -30,4 +33,4 @@ const mapDispatchToProps = (dispatch)=>{
     }
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(Bat) ;
+export default connect(mapStateToProps,mapDispatchtoProps)(Bat) ;

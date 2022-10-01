@@ -13,6 +13,8 @@ export function ballReducer(state = initialState,action){
                 balls : state.balls - 1 
             }
         default :
-        console.log("wrong type") ;
+            return {
+                balls : 10
+            }
     }
 }

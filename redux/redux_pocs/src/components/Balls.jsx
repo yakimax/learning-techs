@@ -1,5 +1,6 @@
 import React from 'react' ;
 import {connect} from 'react-redux' ;
+import {store} from '../store'
 
 
 function Balls(props) {
@@ -15,14 +16,14 @@ function Balls(props) {
 }
 
 const mapStateToProps = (store)=>{
-    return store.Balls ;
+    return store.ball ;
 }
 
-const mapDispatchToProps = (dispatch)=>{
+const mapDispatchtoProps = (dispatch)=>{
     return {
         buyball : ()=>{dispatch({type : 'increment'})},
         sellball : ()=>{dispatch({type : 'decrement'})}
     }
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(Balls) ;
+export default connect(mapStateToProps,mapDispatchtoProps)(Balls) ;

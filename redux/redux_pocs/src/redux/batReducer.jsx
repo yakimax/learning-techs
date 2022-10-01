@@ -22,6 +22,9 @@ export function batReducer(state = initialState,action){
                 value : action.payload
             }
         default : 
-            console.log('aalu') ;
+            return {
+                bat : 10,
+                value : ""
+            }
     }
 }
