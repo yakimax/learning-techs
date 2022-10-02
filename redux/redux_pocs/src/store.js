@@ -6,5 +6,4 @@ const rootReducer = combineReducers({
     bat : batReducer ,
     ball : ballReducer,
 });
-
 export const store  = createStore(rootReducer) ;

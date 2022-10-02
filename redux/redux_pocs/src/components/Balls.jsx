@@ -14,7 +14,6 @@ function Balls(props) {
     </>
   )
 }
-
 const mapStateToProps = (store)=>{
     return store.ball ;
 }
