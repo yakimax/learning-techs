@@ -17,7 +17,6 @@ function Balls(props) {
 const mapStateToProps = (store)=>{
     return store.ball ;
 }
-
 const mapDispatchtoProps = (dispatch)=>{
     return {
         buyball : ()=>{dispatch({type : 'increment'})},
