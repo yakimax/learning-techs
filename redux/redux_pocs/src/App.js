@@ -8,8 +8,8 @@ function App() {
   return (
     <div>
       <Provider store={store}>
-      <Balls/> 
-      <Bat/>
+        <Balls/> 
+        <Bat/>
       </Provider>
     </div>
   );
